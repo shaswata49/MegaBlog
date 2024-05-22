@@ -1,17 +1,16 @@
-import { useState, useEffect } from 'react'
-import{useDispatch} from 'react-redux'
-import './App.css'
-import authService from './appwrite/auth'
-import Footer from './components/Footer/Footer'
-import Header from './components/Header/Header'
-import {login,logout} from './store/authSlice'
-import {Outlet} from 'react-router-dom'
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import "./App.css";
+import authService from "./appwrite/auth";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import { login, logout } from "./store/authSlice";
+import { Outlet } from "react-router-dom";
 import appwriteService from "./appwrite/config";
-import {setPosts as allPosts} from './store/postSlice'
-
+import { setPosts as allPosts } from "./store/postSlice";
 
 function App() {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -39,20 +38,17 @@ function App() {
     fetchData();
   }, [dispatch]);
 
-  
-  
-
   return !loading ? (
-    <div className='min-h-screen flex-wrap content-between bg-gray-400'>
-      <div className='w-full block'>
-        <Header/>
+    <div className="min-h-screen flex-wrap content-between bg-customBlue">
+      <div className="w-full block">
+        <Header />
         <main>
-          TODO: <Outlet/>
+          <Outlet />
         </main>
-        <Footer/>
+        <Footer />
       </div>
     </div>
-  ) : null
+  ) : null;
 }
 
-export default App
+export default App;
